@@ -27,11 +27,27 @@ exports.startDialog = function (bot) {
     });
 
     //GetFavouriteFood intent
-    bot.dialog('GetFavouriteFood', function (session, args) {
-        
-        session.send("Get Favourite Food intent found")
+    bot.dialog('GetFavouriteFood', [
+        function (session, args, next) {
+            session.dialogData.args = args || {};        
+            if (!session.conversationData["username"]) {
+                builder.Prompts.text(session, "Enter a username to setup your account.");                
+            } else {
+                next(); // Skip if we already have this info.
+            }
+        },
+        function (session, results, next) {
+            if (!isAttachment(session)) {
 
-    }).triggerAction({
+                if (results.response) {
+                    session.conversationData["username"] = results.response;
+                }
+
+                session.send("Retrieving your favourite foods");
+                food.displayFavouriteFood(session, session.conversationData["username"]);  // <---- THIS LINE HERE IS WHAT WE NEED 
+            }
+        }
+    ]).triggerAction({
         matches: 'GetFavouriteFood'
     });
 
