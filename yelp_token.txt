@@ -1,0 +1,7 @@
+Yelp:
+
+{
+    "access_token": "xjN1OoVgihtyMZJI2T5vBBpO6bKYP1H76JH8ahhSx4ePJ_EWNyRZDCZYWYI74CxrsraxvRr2-UzH0TUtZWREqQb_sUnFrdchOvlJ2UccRa21Wf58o6IkIyk4KxIWWnYx",
+    "expires_in": 636087597,
+    "token_type": "Bearer"
+}
