@@ -66,3 +66,14 @@ exports.getYelpData = function getData(url,bearer,session, callback){
         }
     });
 };
+
+exports.getNutritionData = function getData(url, session, foodName, callback){
+    
+        request.get(url, function processGetRequest(err,res,body){
+            if(err){
+                console.log(err);
+            }else {
+                callback(body, foodName, session);
+            }
+        });
+    };
