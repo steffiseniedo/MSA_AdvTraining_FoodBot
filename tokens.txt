@@ -23,3 +23,13 @@ Microsoft Bot Framework App Id and password:
 App name: FoodBot
 App ID: 061024b0-7892-4540-b32f-ce165ad654df
 App password: lyfJSHY7}@_rjqdRCT4287(
+
+
+QnA Maker:
+	Sample HTTP Request:
+		
+		POST /knowledgebases/83224197-bdc8-4152-9ce4-fce05fca8d94/generateAnswer
+		Host: https://westus.api.cognitive.microsoft.com/qnamaker/v2.0
+		Ocp-Apim-Subscription-Key: b780793052b942e1856f3d541eb5dc6b
+		Content-Type: application/json
+		{"question":"hi"}

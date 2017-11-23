@@ -1,0 +1,13 @@
+Instructions/Notes:
+
+Setting up bot:
+
+	1. Folder with bot (code)
+	2. Connect with source control (GitHub)
+	3. Azure Instance properly set up ('Deployment Options' in Azure, continuous deployment)
+	4. Registered on Bot Framework
+	
+
+Deploying Website to Azure:
+	1. 'Deployment options' on GitHub
+	2. Azure will recognise the .html file and run that
