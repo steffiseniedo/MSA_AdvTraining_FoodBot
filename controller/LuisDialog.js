@@ -13,7 +13,7 @@ exports.startDialog = function (bot) {
 
     //GetCalories intent
     bot.dialog('GetCalories', function (session, args) {
-        //if (!isAttachment(session)) {
+        if (!isAttachment(session)) {
 
             // Pulls out the food entity from the session if it exists
             var foodEntity = builder.EntityRecognizer.findEntity(args.intent.entities, 'food');
@@ -26,7 +26,7 @@ exports.startDialog = function (bot) {
             } else {
                 session.send("No food identified! Please try again");
             }
-        //}
+        }
     }).triggerAction({
         matches: 'GetCalories'
     });
@@ -42,7 +42,7 @@ exports.startDialog = function (bot) {
             }
         },
         function (session, results,next) {
-            //if (!isAttachment(session)) {
+            if (!isAttachment(session)) {
                 if (results.response) {
                     session.conversationData["username"] = results.response;
                 }
@@ -58,7 +58,7 @@ exports.startDialog = function (bot) {
                 } else {
                     session.send("No food identified! Please try again");
                 }
-            //}
+            }
 
     }]).triggerAction({
         matches: 'DeleteFavourite'
@@ -76,14 +76,14 @@ exports.startDialog = function (bot) {
         },
         function (session, results, next) {
             
-            //if (!isAttachment(session)) {
+            if (!isAttachment(session)) {
                 if (results.response) {
                     session.conversationData["username"] = results.response;
                 }
 
                 session.send("Retrieving your favourite foods");
                 food.displayFavouriteFood(session, session.conversationData["username"]);  // <---- THIS LINE HERE IS WHAT WE NEED 
-            //}
+            }
         }
     ]).triggerAction({
         matches: 'GetFavouriteFood'
@@ -101,7 +101,7 @@ exports.startDialog = function (bot) {
         },
         function (session, results, next) {
             
-            //if (!isAttachment(session)) {
+            if (!isAttachment(session)) {
                 if (results.response) {
                     session.conversationData["username"] = results.response;
                 }
@@ -116,7 +116,7 @@ exports.startDialog = function (bot) {
                 } else {
                     session.send("No food identified!!!");
                 }
-            //}
+            }
         }
     ]).triggerAction({
         matches: 'LookForFavourite'
@@ -125,7 +125,7 @@ exports.startDialog = function (bot) {
     //WantFood intent
     bot.dialog('WantFood', function (session, args) {
         
-                //if (!isAttachment(session)) {
+                if (!isAttachment(session)) {
                     // Pulls out the food entity from the session if it exists
                     var foodEntity = builder.EntityRecognizer.findEntity(args.intent.entities, 'food');
         
@@ -136,7 +136,7 @@ exports.startDialog = function (bot) {
                     } else {
                         session.send("No food identified! Please try again");
                     }
-                //}
+                }
         
             }).triggerAction({
                 matches: 'WantFood'
@@ -151,5 +151,17 @@ exports.startDialog = function (bot) {
         matches: 'WelcomeIntent'
     });
 
+}
 
+function isAttachment(session) { 
+    var msg = session.message.text;
+    if ((session.message.attachments && session.message.attachments.length > 0) || msg.includes("http")) {
+        //call custom vision
+        customVision.retreiveMessage(session);
+
+        return true;
+    }
+    else {
+        return false;
+    }
 }
