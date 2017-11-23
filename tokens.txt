@@ -1,0 +1,25 @@
+Yelp:
+
+	{
+	    "access_token": "xjN1OoVgihtyMZJI2T5vBBpO6bKYP1H76JH8ahhSx4ePJ_EWNyRZDCZYWYI74CxrsraxvRr2-UzH0TUtZWREqQb_sUnFrdchOvlJ2UccRa21Wf58o6IkIyk4KxIWWnYx",
+	    "expires_in": 636087597,
+	    "token_type": "Bearer"
+	}
+
+USDA:
+
+
+API key:
+	xgJFmky7k6Ok8E2yl93R9ZidQp5HBGt3xstRYHAB
+
+	For additional support, please contact us. When contacting us, please tell us what API you're accessing and provide the following account details so we can quickly find you:
+
+	Account Email: steffi.seniedo@hotmail.com
+	Account ID: e996e8ec-3162-41b3-a561-cd2f52daa5d8
+
+
+Microsoft Bot Framework App Id and password:
+
+App name: FoodBot
+App ID: 061024b0-7892-4540-b32f-ce165ad654df
+App password: lyfJSHY7}@_rjqdRCT4287(
