@@ -27,7 +27,6 @@ exports.startDialog = function (bot) {
     });
 
 
-
     //GetCalories intent
     bot.dialog('GetCalories', function (session, args) {
         if (!isAttachment(session)) {
