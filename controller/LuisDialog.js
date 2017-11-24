@@ -2,6 +2,7 @@ var builder = require('botbuilder');
 var food = require('./FavouriteFoods');
 var restaurant = require('./RestaurantCard');
 var nutrition = require('./NutritionCard');
+var customVision = require('./controller/CustomVision');
 var QnA = require('./QnAMaker');
 // Some sections have been omitted
 
@@ -11,6 +12,21 @@ exports.startDialog = function (bot) {
     var recognizer = new builder.LuisRecognizer('https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/cc938fde-d96e-48a4-89d7-9638b0d29c5c?subscription-key=7ccae9875c724aaa89f36cafe3899d87&verbose=true&timezoneOffset=0&q=');
 
     bot.recognizer(recognizer);
+
+
+    bot.dialog('QnA', [
+        function (session, args, next) {
+            session.dialogData.args = args || {};
+            builder.Prompts.text(session, "What is your question?");
+        },
+        function (session, results, next) {
+            qna.talkToQnA(session, results.response);
+        }
+    ]).triggerAction({
+        matches: 'QnA'
+    });
+
+
 
     //GetCalories intent
     bot.dialog('GetCalories', function (session, args) {
@@ -167,14 +183,3 @@ function isAttachment(session) {
     }
 }
 
-bot.dialog('QnA', [
-    function (session, args, next) {
-        session.dialogData.args = args || {};
-        builder.Prompts.text(session, "What is your question?");
-    },
-    function (session, results, next) {
-        qna.talkToQnA(session, results.response);
-    }
-]).triggerAction({
-    matches: 'QnA'
-});
