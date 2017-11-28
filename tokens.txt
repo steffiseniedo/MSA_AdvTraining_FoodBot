@@ -9,13 +9,13 @@ Yelp:
 USDA:
 
 
-API key:
-	xgJFmky7k6Ok8E2yl93R9ZidQp5HBGt3xstRYHAB
+	API key:
+		xgJFmky7k6Ok8E2yl93R9ZidQp5HBGt3xstRYHAB
 
-	For additional support, please contact us. When contacting us, please tell us what API you're accessing and provide the following account details so we can quickly find you:
+		For additional support, please contact us. When contacting us, please tell us what API you're accessing and provide the following account details so we can quickly find you:
 
-	Account Email: steffi.seniedo@hotmail.com
-	Account ID: e996e8ec-3162-41b3-a561-cd2f52daa5d8
+		Account Email: steffi.seniedo@hotmail.com
+		Account ID: e996e8ec-3162-41b3-a561-cd2f52daa5d8
 
 
 Microsoft Bot Framework App Id and password:
